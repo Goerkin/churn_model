@@ -37,12 +37,12 @@ stages:
       size: 1726
     params:
       params.yaml:
-        random_forest.max_depth: 7
-        random_forest.n_estimators: 20
+        random_forest.max_depth: 10
+        random_forest.n_estimators: 30
     outs:
     - path: models/model.joblib
-      md5: 0c41c6b4bf510adf0b7c03b9fbb88122
-      size: 80237
+      md5: 870d7128b8be2dab5d3172f125d2f49d
+      size: 654140
   model_train:
     cmd: python src/models/train_model.py --config=params.yaml
     deps:
@@ -57,5 +57,5 @@ stages:
       size: 3886
     params:
       params.yaml:
-        random_forest.max_depth: 7
-        random_forest.n_estimators: 20
+        random_forest.max_depth: 10
+        random_forest.n_estimators: 30
