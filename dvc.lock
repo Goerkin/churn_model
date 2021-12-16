@@ -4,31 +4,31 @@ stages:
     cmd: python src/data/load_data.py --config=params.yaml
     deps:
     - path: data/external/train.csv
-      md5: 8929517566f004183dff480fdd48afe0
-      size: 391872
+      md5: a4b61a338b731a677b007f0a261e439d
+      size: 391596
     - path: src/data/load_data.py
       md5: 1de1b5780f0f897223d87024bae9c1fa
       size: 1435
     outs:
     - path: data/raw/train.csv
-      md5: 9b61c38a459d36244dbf8e6940236371
-      size: 120397
+      md5: 54b1f8d07da60ebe0cf8deb0181ee5ef
+      size: 120314
   split_data:
     cmd: python src/data/split_data.py --config=params.yaml
     deps:
     - path: data/raw/train.csv
-      md5: 9b61c38a459d36244dbf8e6940236371
-      size: 120397
+      md5: 54b1f8d07da60ebe0cf8deb0181ee5ef
+      size: 120314
     - path: src/data/split_data.py
       md5: c143a95ea697d55e3718f4fe9bdc4dfb
       size: 1383
     outs:
     - path: data/processed/churn_test.csv
-      md5: 81d9d118108bc702820c57174353a27f
-      size: 12139
+      md5: 4bf8fa47e3ff0022327aea7519fff6c6
+      size: 12153
     - path: data/processed/churn_train.csv
-      md5: 69bf6f4770039ceed53f9e0ea67a9795
-      size: 108387
+      md5: ed806531bba3bb3b3b3b699bac249dfc
+      size: 108290
   log_production_model:
     cmd: python src/models/production_model_selection.py --config=params.yaml
     deps:
@@ -47,11 +47,11 @@ stages:
     cmd: python src/models/train_model.py --config=params.yaml
     deps:
     - path: data/processed/churn_test.csv
-      md5: 81d9d118108bc702820c57174353a27f
-      size: 12139
+      md5: 4bf8fa47e3ff0022327aea7519fff6c6
+      size: 12153
     - path: data/processed/churn_train.csv
-      md5: 69bf6f4770039ceed53f9e0ea67a9795
-      size: 108387
+      md5: ed806531bba3bb3b3b3b699bac249dfc
+      size: 108290
     - path: src/models/train_model.py
       md5: 2923cddf7769edf96bb19055bb1693cc
       size: 3886
