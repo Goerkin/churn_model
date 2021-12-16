@@ -38,7 +38,7 @@ jobs:
         HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
       if: github.ref == 'refs/heads/main' && job.status == 'success'
       run: |
-        git remote add heroku https://heroku:90b2c2d0-93f5-4cb8-9658-5ba10e8ccd93@git.heroku.com/auth.git
+        git remote add heroku https://heroku:90b2c2d0-93f5-4cb8-9658-5ba10e8ccd93@git.heroku.com/churn_model.git
         git push heroku HEAD:main -f
 
 
